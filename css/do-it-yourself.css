@@ -1,0 +1,184 @@
+.ConicInput-input {
+  display: inline-block;
+  min-width: 24px;
+  text-align: center;
+  border-width: 1px;
+  margin-right: 4px;
+  margin-left: 4px;
+  height: 20px;
+  /* border-radius: 2px; */
+  /* font-size: 14px; */
+  /* border-style: solid; */
+  /* border-radius: 2px; */
+  color: black;
+  flex: 1;
+  padding: 0;
+}
+
+.ConicInput-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.RenderedInputConics-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+@media (max-width: 460px) {
+  .ConicInput-input {
+    font-size: 12px;
+  }
+  .ConicInput-container {
+    font-size: 12px;
+  }
+  .RenderedInputConics-container {
+    font-size: 12px;
+  }
+
+  #post-box,
+  #main {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .general-conic {
+    font-size: 14px;
+  }
+}
+
+.ConicInput-button {
+  width: 90px;
+  min-height: 32px;
+  padding: 2px;
+  margin: 0;
+  border: 0;
+  border-radius: 4px;
+  color: white;
+  font-weight: 500;
+}
+
+.ConicInput-plus {
+  margin-left: 4px;
+  display: inline-block;
+  /* mask-repeat: no-repeat; */
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/03/Plus_sign_font_awesome.svg);
+  min-width: 32px;
+  height: 32px;
+  opacity: 1;
+  /* background-color: #4ca0f5; */
+}
+
+.ConicInput-plus:active {
+  opacity: 0.5;
+}
+
+.CustomInput-canvas {
+  width: 100%;
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+}
+
+canvas[resize] {
+  width: 100%;
+  height: 100%;
+}
+
+.InputConics-minus {
+  margin-left: 4px;
+  display: inline-block;
+  /* mask-repeat: no-repeat; */
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/4c/Minus_sign_font_awesome.svg);
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  /* background-color: #d02040; */
+}
+
+.InputConics-minus:active {
+  opacity: 0.5;
+}
+
+.CustomInput-button {
+  margin-top: 14px;
+}
+
+.CustomInput-button-disabled {
+  margin-top: 14px;
+  opacity: 0.4;
+}
+.CustomInput-button-disabled:hover {
+  opacity: 0.4;
+  outline: 0;
+  text-decoration: none;
+  color: #fff;
+  background-color: #1c86f2;
+}
+
+@keyframes blink {
+  /**
+     * At the start of the animation the dot
+     * has an opacity of .2
+     */
+  0% {
+    opacity: 0.2;
+  }
+  /**
+     * At 20% the dot is fully visible and
+     * then fades out slowly
+     */
+  20% {
+    opacity: 1;
+  }
+  /**
+     * Until it reaches an opacity of .2 and
+     * the animation can start again
+     */
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.computing span {
+  /**
+     * Use the blink animation, which is defined above
+     */
+  animation-name: blink;
+  /**
+     * The animation should take 1.4 seconds
+     */
+  animation-duration: 1.4s;
+  /**
+     * It will repeat itself forever
+     */
+  animation-iteration-count: infinite;
+  /**
+     * This makes sure that the starting style (opacity: .2)
+     * of the animation is applied before the animation starts.
+     * Otherwise we would see a short flash or would have
+     * to set the default styling of the dots to the same
+     * as the animation. Same applies for the ending styles.
+     */
+  animation-fill-mode: both;
+}
+
+.computing span:nth-child(2) {
+  /**
+     * Starts the animation of the third dot
+     * with a delay of .2s, otherwise all dots
+     * would animate at the same time
+     */
+  animation-delay: 0.2s;
+}
+
+.computing span:nth-child(3) {
+  /**
+     * Starts the animation of the third dot
+     * with a delay of .4s, otherwise all dots
+     * would animate at the same time
+     */
+  animation-delay: 0.4s;
+}

@@ -1,3 +1,6 @@
+a[href^="http://"]:not([href*="mpg.de"]):before,
+a[href^="https://"]:not([href*="mpg.de"]):before{content: '\29C9';}
+
 body {
     background-color: #fff;
 }

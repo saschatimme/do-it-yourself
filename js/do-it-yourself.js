@@ -1,6 +1,6 @@
 "use strict";
 
-const COMPUTE_URL = "https://juliahomotopycontinuation.mis.mpg.de/conics";
+const COMPUTE_URL = window.location.href + "cgi-bin/conics.py";
 const e = React.createElement;
 const tangentialConicColor = "#FB5B5B";
 const givenConicColor = "#25A9CC";

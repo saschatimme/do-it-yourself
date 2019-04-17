@@ -139,6 +139,26 @@ function postData(url, data) {
   ); // parses response to JSON
 }
 
+function getData(url, data) {
+  // Default options are marked with *
+  return fetch(url + "?data=" + btoa(JSON.stringify(data)), {
+    method: "GET", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, cors, *same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    // credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json"
+    },
+    redirect: "follow" // manual, *follow, error
+    // referrer: "no-referrer", // no-referrer, *client
+    // body: JSON.stringify(data) // body data type must match "Content-Type" header
+  }).then(
+    function(response) {
+      return response.json();
+    }.bind(this)
+  ); // parses response to JSON
+}
+
 function conicsToString(given_conics, conics) {
   var str =
     "# A conic is represented by a single line. The coefficients are in the order a,b,c,d,e,f where ax^2+bxy+cy^2+dx+ey+f=0 separeted by a tab (\\t).  The first block are the 5 given conics and the second block are the real conics tangent to those 5 conics.\n";
@@ -602,7 +622,7 @@ class CustomInput extends React.Component {
 
   fetchTangentConics() {
     var conics = this.state.given_conics;
-    postData(COMPUTE_URL, { conics: conics })
+    getData(COMPUTE_URL, { conics: conics })
       .then(
         function(data) {
           this.removeOldData();
